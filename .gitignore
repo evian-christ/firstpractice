@@ -1,0 +1,23 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+.import/
+
+*.exe
+*.dll
+*.pck
+*.zip
+*.tar.gz
+
+.editor_settings-*
+
+.mono/
+data_*/
+*.csproj
+*.sln
+*.userprefs
+
+.DS_Store
+Thumbs.db
+*.swp
