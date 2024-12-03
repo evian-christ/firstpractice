@@ -1,19 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://ci4ttgtvxtv8y"]
+[gd_scene load_steps=6 format=3 uid="uid://ci4ttgtvxtv8y"]
 
-[ext_resource type="Script" path="res://turret.gd" id="3_k0gr3"]
+[ext_resource type="Script" path="res://Turret/turret.gd" id="3_k0gr3"]
 [ext_resource type="Texture2D" uid="uid://dihpuhg0tmimm" path="res://techno turret1.png" id="3_naskf"]
+[ext_resource type="Script" path="res://Turret/attack_range.gd" id="3_s564d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_be4lq"]
 custom_solver_bias = 1.0
-radius = 50.0
+radius = 25.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a312y"]
+radius = 200.0
 
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 198.0
+offset_top = 79.0
+offset_right = 198.0
+offset_bottom = 79.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -30,9 +36,11 @@ texture = ExtResource("3_naskf")
 disable_mode = 1
 
 [node name="mouse_detector_area" type="CollisionShape2D" parent="Turret/mouse_detector"]
+visible = false
 shape = SubResource("CircleShape2D_be4lq")
 
 [node name="attack_range" type="Area2D" parent="Turret"]
+script = ExtResource("3_s564d")
 
 [node name="attack_range_area" type="CollisionShape2D" parent="Turret/attack_range"]
 shape = SubResource("CircleShape2D_a312y")
