@@ -2,7 +2,7 @@ extends Area2D
 
 @onready var area = $attack_range_area
 
-var range = 100
+var range = 200
 
 func _ready() -> void:
 	var shape = area.shape

@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ci4ttgtvxtv8y"]
+[gd_scene load_steps=9 format=3 uid="uid://ci4ttgtvxtv8y"]
 
 [ext_resource type="Script" path="res://Turret/turret.gd" id="3_k0gr3"]
 [ext_resource type="Texture2D" uid="uid://dihpuhg0tmimm" path="res://techno turret1.png" id="3_naskf"]
 [ext_resource type="Script" path="res://Turret/attack_range.gd" id="3_s564d"]
+[ext_resource type="Script" path="res://move.gd" id="4_m6pl3"]
+[ext_resource type="Texture2D" uid="uid://bgg5ulxhfdsrm" path="res://icon.svg" id="5_dt3vs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_be4lq"]
 custom_solver_bias = 1.0
@@ -10,6 +12,9 @@ radius = 25.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a312y"]
 radius = 200.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mdl0b"]
+radius = 50.0
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -44,3 +49,16 @@ script = ExtResource("3_s564d")
 
 [node name="attack_range_area" type="CollisionShape2D" parent="Turret/attack_range"]
 shape = SubResource("CircleShape2D_a312y")
+
+[node name="Enemy" type="Node2D" parent="."]
+position = Vector2(120, 176)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("4_m6pl3")
+
+[node name="Enemy_sprite" type="Sprite2D" parent="Enemy"]
+texture = ExtResource("5_dt3vs")
+
+[node name="Area2D" type="Area2D" parent="Enemy"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Area2D"]
+shape = SubResource("CircleShape2D_mdl0b")
